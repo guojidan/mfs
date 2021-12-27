@@ -42,7 +42,7 @@ std::shared_ptr<NetworkStack> NetworkStack::create(MfsContext *mct, const std::s
 
     for(unsigned worker_id = 0; worker_id < num_worker; ++worker_id){
         Worker *w = stack -> create_worker(mct, worker_id);
-        int ret = w -> center.init();
+        int ret = w -> center.init(InitEventNumber, worker_id, type);
     }
 
 }
